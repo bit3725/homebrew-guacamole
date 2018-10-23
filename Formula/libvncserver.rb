@@ -9,6 +9,7 @@ class Libvncserver < Formula
   depends_on 'libjpeg-turbo'
 
   def install
+    system "autoreconf", "-fi"
     system "./configure", "--with-jpeg=#{HOMEBREW_PREFIX}/opt/jpeg-turbo",
                           "--prefix=#{prefix}"
     system "make", "install"
